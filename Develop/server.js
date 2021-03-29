@@ -37,3 +37,17 @@ app.delete("/api/notes/:id", (req, res) => {
     fs.writeFileSync("./db/db.json", JSON.stringify(noNotes));
 })
 
+//HTML
+app.get("/", function (req, res){
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+});
+
+//Calls to the notes.html folder 
+app.get("/notes", function (req,res){
+    res.sendFile(path.join(__dirname, "/public/notes.html"));
+});
+
+
+app.listen(PORT, () => {
+    console.log(`App listening on PORT ${PORT}`);
+})
