@@ -30,7 +30,7 @@ app.post("/api/notes", (req, res) => {
     res.json(notes);
 });
 
-//Removes the old notes 
+//Removes the old notes (bonus points!!)
 app.delete("/api/notes/:id", (req, res) => {
     const notes = JSON.parse(fs.readFileSync("./db/db.json"));
     const deleteNote = notes.filter((rmvNote) => rmvNote.id !== req.params.id);
