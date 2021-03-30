@@ -1,8 +1,8 @@
 # Notes
 
 ## Links: 
-Site: https://cristinaacosta.github.io/Notes/
-Repo: https://github.com/CristinaAcosta/Notes
+- Site: https://cristinaacosta.github.io/Notes/
+- Repo: https://github.com/CristinaAcosta/Notes
 
 ## Description:
 I have a basic home page where I am able to navigate to the next note page. On the note page, I am able to type out a note then save it to the local host. When I am done, I can click on the pencil to start a new note and still see my previous notes. 
