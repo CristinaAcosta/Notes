@@ -1,10 +1,12 @@
 const express = require("express");
 const fs = require("fs");
 const notes = require("./db/db.json");
-const uuid = require("uuid");
-//const { DH_CHECK_P_NOT_SAFE_PRIME } = require("constants");
+const path = require("path");
+//const uuid = require("uuid");
+
 
 const app = express();
+
 var PORT = process.env.PORT || 8080;
 
 // Gives access to the assest folder 
@@ -12,34 +14,26 @@ app.use(express.urlencoded({extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-
 // Routes for the API's
 app.get("/api/notes", (req, res) => {
-    res.sendFile(path.join(__dirname, "./db/db.json"));
+    res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 //post function to add new notes
 //UUID creates a unique ID for each note so then we can delete certain notes 
 //Stringify allows us to read it 
 app.post("/api/notes", (req, res) => {
-    const notes = JSON.parse(fs.readFileSync(".db/db.json"));
-    const newNote = req.body;
-    new.id = uuid.v4();
+    const notes = JSON.parse(fs.readFileSync("./db/db.json"));
+    const newNote = req.body.toUpperCase;
+    newNote.id = uuid.v4();
     notes.push(newNote); 
     fs.writeFileSync("./db/db.json", JSON.stringify(notes));
     res.json(notes);
 });
 
-//Removes the old notes (bonus points!!)
-app.delete("/api/notes/:id", (req, res) => {
-    const notes = JSON.parse(fs.readFileSync("./db/db.json"));
-    const deleteNote = notes.filter((rmvNote) => rmvNote.id !== req.params.id);
-    fs.writeFileSync("./db/db.json", JSON.stringify(noNotes));
-})
-
-//HTML
+//calls the HTML
 app.get("/", function (req, res){
-    res.sendFile(path.join(__dirname, "/public/index.html"));
+    res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 //Calls to the notes.html folder 
@@ -48,6 +42,10 @@ app.get("/notes", function (req,res){
 });
 
 
-app.listen(PORT, () => {
-    console.log(`App listening on PORT ${PORT}`);
+app.listen(8080, () => {
+    console.log(`App listening on PORT ${8080}`);
 })
+
+
+// app will keep listening until we stop it w/ control C
+//npx nodemon index.js = will download file so it will update automactically w/ each save 
