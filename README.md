@@ -15,7 +15,7 @@ I have a basic home page where I am able to navigate to the next note page. On t
 
 
 ## Things I learned:
-- I learned how to have an application listen to a localhost. I am still getting familiar with using Insomnia but not sure how it really works yet. I am unsure why my notes are also not saving since I feel my code is right. 
+- I learned how to have an application listen to a localhost. I am still getting familiar with using Insomnia but not sure how it really works yet. 
     
 ## Images:
 <img width="1359" alt="Screen Shot 2021-03-30 at 10 11 11 AM" src="https://user-images.githubusercontent.com/74034987/113028558-423a8d00-9140-11eb-8fa4-50426d49a3dc.png">
